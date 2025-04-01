@@ -1,0 +1,11 @@
+url: https://steven314.github.io/rpersonalutils/
+template:
+  bootstrap: 5
+navbar:
+  structure:
+    right: [search, github]
+
+authors:
+  Steven Carter:
+    href: https://steven314.github.io/
+
