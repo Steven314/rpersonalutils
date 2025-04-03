@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# rpersonalutils
+# rpersonalutils <a href="https://steven314.github.io/rpersonalutils/"><img src="man/figures/logo.png" align="right" height="139" alt="rpersonalutils website" /></a>
 
 <!-- badges: start -->
 <!-- badges: end -->
