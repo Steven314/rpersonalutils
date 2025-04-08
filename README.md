@@ -17,6 +17,11 @@ You can install the development version of `rpersonalutils` from
 ``` r
 # install.packages("pak")
 pak::pak("Steven314/rpersonalutils")
+
+# -- OR --
+
+# intall.packages("remotes")
+remotes::install_github("Steven314/rpersonalutils")
 ```
 
 There are no plans to release on CRAN as this is primarily for personal

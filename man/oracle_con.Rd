@@ -17,6 +17,13 @@ oracle_con(user, pass, dbname)
 An ROracle database connection (\code{OraConnection}).
 }
 \description{
-Connect to an Oracle database.
-Provide the username and password through secret means.
+Connect to an Oracle database. Provide the username and password through
+secret means.
+}
+\details{
+Installing the \code{ROracle} package can be complicated. It requires the OCI
+library. Instructions can be found on the Oracle website and require an
+Oracle account. The \href{https://cran.r-project.org/package=ROracle}{version on CRAN} is outdated, see
+\href{https://www.oracle.com/database/technologies/roracle-downloads.html}{Oracle}
+for the most recent release.
 }

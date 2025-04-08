@@ -1,7 +1,14 @@
 #' Oracle Database Connection
 #'
-#' Connect to an Oracle database.
-#' Provide the username and password through secret means.
+#' Connect to an Oracle database. Provide the username and password through
+#' secret means.
+#'
+#' Installing the `ROracle` package can be complicated. It requires the OCI
+#' library. Instructions can be found on the Oracle website and require an
+#' Oracle account. The [version on
+#' CRAN](https://cran.r-project.org/package=ROracle) is outdated, see
+#' [Oracle](https://www.oracle.com/database/technologies/roracle-downloads.html)
+#' for the most recent release.
 #'
 #' @param user Oracle username.
 #' @param pass Oracle password.
@@ -10,7 +17,7 @@
 #' @returns An ROracle database connection (`OraConnection`).
 #' @export
 oracle_con <- function(user, pass, dbname) {
-    requireNamespace("DBI", quietly = TRUE)
+    requireNamespace("DBI",     quietly = TRUE)
     requireNamespace("ROracle", quietly = TRUE)
 
     DBI::dbConnect(
@@ -34,16 +41,16 @@ oracle_con <- function(user, pass, dbname) {
 #'   pointing to the same path) will silently ignore this flag.
 #'
 #' @returns A DuckDB connection object ([`duckdb::duckdb_driver`]).
-#' @importFrom rlang arg_match
+#' @importFrom rlang is_logical
 #' @export
 duck_con <- function(dbdir, read_only = FALSE) {
     requireNamespace("duckdb", quietly = TRUE)
 
-    read_only <- rlang::arg_match(read_only, c(TRUE, FALSE))
+    stopifnot(rlang::is_logical(read_only))
 
     DBI::dbConnect(
-        duckdb::duckdb(),
-        dbdir = dbdir,
+        drv       = duckdb::duckdb(),
+        dbdir     = dbdir,
         read_only = read_only
     )
 }

@@ -19,6 +19,13 @@ BugReports: https://github.com/Steven314/rpersonalutils/issues
 Suggests: 
     DBI,
     duckdb,
+    geosphere,
     ROracle
 Imports: 
-    rlang
+    dplyr,
+    janitor,
+    readr,
+    rlang,
+    stringr,
+    tibble,
+    tidyselect

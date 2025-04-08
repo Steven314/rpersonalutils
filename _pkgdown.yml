@@ -1,9 +1,10 @@
 url: https://steven314.github.io/rpersonalutils/
 template:
   bootstrap: 5
-navbar:
-  structure:
-    right: [search, github]
+  bslib:
+    bootswatch: materia
+    pkgdown-nav-height: 100px
+    primary: "#621c52"
 
 authors:
   Steven Carter:
