@@ -11,16 +11,26 @@ geographic_distance(lat, long, lat_ref, long_ref, unit = c("miles", "km"))
 
 \item{long}{A vector of longitude coordinates.}
 
-\item{lat_ref}{A reference latitude.}
+\item{lat_ref}{A reference latitude. May be a vector.}
 
-\item{long_ref}{A reference longitude.}
+\item{long_ref}{A reference longitude. May be a vector.}
 
-\item{unit}{The output unit. Must be miles or kilometers (\code{km}). The
-conversion factor is 1609.334 meters to 1 mile.}
+\item{unit}{The output unit, default is \code{miles}. Must be miles or kilometers
+(\code{km}). The conversion factor is 1609.334 meters to 1 mile.}
 }
 \value{
-A vector of the distance between to points on a globe.
+A vector of the distance between two points on a globe. Any missing
+coordinates will return \code{NA}.
 }
 \description{
-This wraps \code{\link[geosphere:distGeo]{geosphere::distGeo}} and allows unit conversion.
+This wraps \href{https://rdrr.io/cran/geosphere/man/distGeo.html}{\code{geosphere::distGeo}} and allows unit conversion. It is suitable
+for use in \code{\link[dplyr:mutate]{dplyr::mutate}}. The vector lengths must be able to be recycled.
+Preferrably the refenrece coordinates are each of length one or the same
+length as the test coordinates.
+}
+\examples{
+coords <- c(36.68, -108.82) # somewhere in New Mexico
+ref    <- c(45, -100)       # somewhere in South Dakota
+
+\dontrun{geographic_distance(coords[1], coords[2], ref[1], ref[2])}
 }
