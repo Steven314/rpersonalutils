@@ -10,3 +10,21 @@ authors:
   Steven Carter:
     href: https://steven314.github.io/
 
+reference:
+
+- title: Database Interactions
+  contents:
+  - collect_query
+  - oracle_con
+  - duck_con
+  - write_duckdb
+
+- title: Table Investigation
+  contents:
+  - count_duplicates
+  - "%notin%"
+  - select_columns_na
+
+- title: Calculation Shortcuts
+  contents:
+  - geographic_distance
