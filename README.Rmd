@@ -13,7 +13,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-# rpersonalutils <a href="https://steven314.github.io/rpersonalutils/"><img src="man/figures/logo.png" align="right" height="139" alt="rpersonalutils website" /></a>
+# rpersonalutils <a href="https://slcarter.com/rpersonalutils/"><img src="man/figures/logo.png" align="right" height="139" alt="rpersonalutils website" /></a>
 
 <!-- badges: start -->
 <!-- badges: end -->
