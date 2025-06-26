@@ -16,16 +16,19 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
 URL: https://github.com/Steven314/rpersonalutils, https://slcarter.com/rpersonalutils/
 BugReports: https://github.com/Steven314/rpersonalutils/issues
+Depends:
+    R (>= 4.1)
 Suggests: 
     DBI,
     duckdb,
     geosphere,
-    ROracle
+    ROracle,
+    tibble
 Imports: 
+    cli,
     dplyr,
     janitor,
     readr,
     rlang,
     stringr,
-    tibble,
     tidyselect
