@@ -17,21 +17,27 @@ write_duckdb <- function(
     con,
     table,
     table_name,
-    comment   = NULL,
+    comment = NULL,
     overwrite = TRUE,
     ...,
-    quiet     = FALSE
+    quiet = FALSE
 ) {
     requireNamespace("duckdb", quietly = TRUE)
 
     # ensure that the database connect allows writing
-    if (con@driver@read_only) stop("The connection is read-only.")
+    if (con@driver@read_only) {
+        stop("The connection is read-only.")
+    }
 
     # prepare the comment statement
     if (!is.null(comment)) {
         statement <- paste0(
-            "COMMENT ON TABLE ", table_name, " IS ",
-            "'", comment, "'"
+            "COMMENT ON TABLE ",
+            table_name,
+            " IS ",
+            "'",
+            comment,
+            "'"
         )
     }
 
@@ -59,7 +65,6 @@ write_duckdb <- function(
             if (!quiet) {
                 message(paste("Table", table_name, "added to the database."))
             }
-
         },
         error = \(e) e
     )

@@ -23,27 +23,33 @@
 #'
 #' \dontrun{geographic_distance(coords[1], coords[2], ref[1], ref[2])}
 geographic_distance <- function(
-    lat, long,
-    lat_ref, long_ref,
+    lat,
+    long,
+    lat_ref,
+    long_ref,
     unit = c("miles", "km")
 ) {
-
-    if (!rlang::is_installed("geosphere")) stop(
-        "The package `geosphere` is required for this function, but is not installed.\n",
-        "Please install the package with `install.packages('geosphere')`."
-    )
+    if (!rlang::is_installed("geosphere")) {
+        stop(
+            "The package `geosphere` is required for this function, but is not installed.\n",
+            "Please install the package with `install.packages('geosphere')`."
+        )
+    }
 
     unit <- rlang::arg_match(unit)
 
     # ensure that abs(latitudes) are less than 90 degrees.
     within_90 <- function(l) all(abs(l) <= 90 | is.na(l))
-    stopifnot("Latitudes must be within [-90, 90]."           = within_90(lat))
-    stopifnot("Reference latitudes must be within [-90, 90]." = within_90(lat_ref))
+    stopifnot("Latitudes must be within [-90, 90]." = within_90(lat))
+    stopifnot(
+        "Reference latitudes must be within [-90, 90]." = within_90(lat_ref)
+    )
 
     # the unit for `distGeo` is meters, divide by 1609.344 to get miles and 1000
     # to get kilometers.
     geosphere::distGeo(
         cbind(long, lat),
         cbind(long_ref, lat_ref)
-    ) / ifelse(unit == "miles", 1609.344, 1000)
+    ) /
+        ifelse(unit == "miles", 1609.344, 1000)
 }

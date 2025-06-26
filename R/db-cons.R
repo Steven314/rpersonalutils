@@ -17,14 +17,14 @@
 #' @returns An ROracle database connection (`OraConnection`).
 #' @export
 oracle_con <- function(user, pass, dbname) {
-    requireNamespace("DBI",     quietly = TRUE)
+    requireNamespace("DBI", quietly = TRUE)
     requireNamespace("ROracle", quietly = TRUE)
 
     DBI::dbConnect(
         ROracle::Oracle(),
         username = user,
         password = pass,
-        dbname   = dbname
+        dbname = dbname
     )
 }
 
@@ -49,8 +49,8 @@ duck_con <- function(dbdir, read_only = FALSE) {
     stopifnot(rlang::is_logical(read_only))
 
     DBI::dbConnect(
-        drv       = duckdb::duckdb(),
-        dbdir     = dbdir,
+        drv = duckdb::duckdb(),
+        dbdir = dbdir,
         read_only = read_only
     )
 }
