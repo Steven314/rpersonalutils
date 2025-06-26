@@ -12,9 +12,9 @@
 #' This function may change or go away if/when `{duckplyr}` becomes more
 #' friendly.
 #'
-#' @param con A DuckDB connection.
-#' @param expr A tibble or dataframe-like object that can be inserted into
+#' @param .data A tibble or dataframe-like object that can be inserted into
 #'   DuckDB.
+#' @param con A DuckDB connection.
 #' @param tbl_name The name for the temporary table.
 #' @param overwrite A logical whether to overwrite an existing temporary table.
 #' @param quiet Suppress information messages. The default is true and this does
@@ -25,8 +25,8 @@
 #' @importFrom dplyr pull tbl
 #' @export
 temp_duck_table <- function(
+    .data,
     con,
-    expr,
     tbl_name,
     overwrite = FALSE,
     quiet = TRUE
@@ -89,7 +89,7 @@ temp_duck_table <- function(
         DBI::dbWriteTable(
             conn = con,
             name = tbl_name,
-            value = expr,
+            value = .data,
             overwrite = overwrite,
             temporary = TRUE
         )

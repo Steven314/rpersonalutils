@@ -4,13 +4,13 @@
 \alias{temp_duck_table}
 \title{Create a Temporary DuckDB Table}
 \usage{
-temp_duck_table(con, expr, tbl_name, overwrite = FALSE, quiet = TRUE)
+temp_duck_table(.data, con, tbl_name, overwrite = FALSE, quiet = TRUE)
 }
 \arguments{
-\item{con}{A DuckDB connection.}
-
-\item{expr}{A tibble or dataframe-like object that can be inserted into
+\item{.data}{A tibble or dataframe-like object that can be inserted into
 DuckDB.}
+
+\item{con}{A DuckDB connection.}
 
 \item{tbl_name}{The name for the temporary table.}
 
