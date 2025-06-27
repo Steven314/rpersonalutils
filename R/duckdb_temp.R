@@ -86,13 +86,39 @@ temp_duck_table <- function(
             cli::cli_alert_info("The table already exists. Recalculating")
         }
 
-        DBI::dbWriteTable(
-            conn = con,
-            name = tbl_name,
-            value = .data,
-            overwrite = overwrite,
-            temporary = TRUE
-        )
+        # this will catch if you don't have `{dbplyr}` installed.
+        exec_data <- force(.data)
+
+        # if the input is a tbl(...) statement, load it directly.
+        # otherwise, assume it is a data.frame-like object and insert it.
+
+        if (
+            ("tbl_lazy" %in% class(exec_data)) &
+                requireNamespace("dbplyr", quietly = TRUE)
+        ) {
+            DBI::dbExecute(
+                con,
+                paste(
+                    "CREATE",
+                    ifelse(overwrite, 'OR REPLACE', ''),
+                    "TEMPORARY TABLE",
+                    tbl_name,
+                    "AS (",
+                    exec_data |>
+                        dbplyr::remote_query() |>
+                        as.character(),
+                    ")"
+                )
+            )
+        } else {
+            DBI::dbWriteTable(
+                conn = con,
+                name = tbl_name,
+                value = exec_data,
+                overwrite = overwrite,
+                temporary = TRUE
+            )
+        }
     }
 
     # otherwise do nothing; there is no need to recalculate.
