@@ -81,10 +81,12 @@ is happening.</p></dd>
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>This allows you to cache a calculation in DuckDB and retrieve it later
 without inserting a check to calculate or to pull the existing. When
-inserting the table must be materialized. You can't cache the result of
-<code><a href="https://dplyr.tidyverse.org/reference/tbl.html" class="external-link">dplyr::tbl()</a></code> until you <code><a href="https://dplyr.tidyverse.org/reference/compute.html" class="external-link">dplyr::collect()</a></code> it.</p>
-<p>This function may change or go away if/when <code>{duckplyr}</code> becomes more
-friendly.</p>
+inserting, the table does not have to be materialized. You can cache the
+result of a DuckDB query which uses <code><a href="https://dplyr.tidyverse.org/reference/tbl.html" class="external-link">dplyr::tbl()</a></code>. Queries from any other
+database must be materialized.</p>
+<p>This is similar to the concept of <code>duckplyr::compute.duckplyr_df</code>, but is a
+little more flexible for my needs (see
+<a href="https://github.com/tidyverse/duckplyr/issues/728" class="external-link">tidyverse/duckplyr#728</a>).</p>
     </div>
 
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
