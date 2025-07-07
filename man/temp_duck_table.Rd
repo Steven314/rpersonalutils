@@ -31,9 +31,11 @@ recalculate if it does.
 \details{
 This allows you to cache a calculation in DuckDB and retrieve it later
 without inserting a check to calculate or to pull the existing. When
-inserting the table must be materialized. You can't cache the result of
-\code{\link[dplyr:tbl]{dplyr::tbl()}} until you \code{\link[dplyr:compute]{dplyr::collect()}} it.
+inserting, the table does not have to be materialized. You can cache the
+result of a DuckDB query which uses \code{\link[dplyr:tbl]{dplyr::tbl()}}. Queries from any other
+database must be materialized.
 
-This function may change or go away if/when \code{{duckplyr}} becomes more
-friendly.
+This is similar to the concept of \code{\link[duckplyr:compute.duckplyr_df]{duckplyr::compute.duckplyr_df}}, but is a
+little more flexible for my needs (see
+\href{https://github.com/tidyverse/duckplyr/issues/728}{tidyverse/duckplyr#728}).
 }

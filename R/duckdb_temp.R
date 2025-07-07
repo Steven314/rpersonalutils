@@ -6,11 +6,13 @@
 #'
 #' This allows you to cache a calculation in DuckDB and retrieve it later
 #' without inserting a check to calculate or to pull the existing. When
-#' inserting the table must be materialized. You can't cache the result of
-#' [`dplyr::tbl()`] until you [`dplyr::collect()`] it.
+#' inserting, the table does not have to be materialized. You can cache the
+#' result of a DuckDB query which uses [`dplyr::tbl()`]. Queries from any other
+#' database must be materialized.
 #'
-#' This function may change or go away if/when `{duckplyr}` becomes more
-#' friendly.
+#' This is similar to the concept of [`duckplyr::compute.duckplyr_df`], but is a
+#' little more flexible for my needs (see
+#' [tidyverse/duckplyr#728](https://github.com/tidyverse/duckplyr/issues/728)).
 #'
 #' @param .data A tibble or dataframe-like object that can be inserted into
 #'   DuckDB.
@@ -92,10 +94,7 @@ temp_duck_table <- function(
         # if the input is a tbl(...) statement, load it directly.
         # otherwise, assume it is a data.frame-like object and insert it.
 
-        if (
-            ("tbl_lazy" %in% class(exec_data)) &
-                requireNamespace("dbplyr", quietly = TRUE)
-        ) {
+        if (dplyr::is.tbl(exec_data)) {
             DBI::dbExecute(
                 con,
                 paste(
