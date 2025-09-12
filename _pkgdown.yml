@@ -13,12 +13,18 @@ authors:
 reference:
 
 - title: Database Interactions
+- subtitle: General
   contents:
   - collect_query
+- subtitle: Oracle
+  contents:
   - oracle_con
+- subtitle: DuckDB
+  contents:
   - duck_con
   - write_duckdb
   - temp_duck_table
+  - install_duckdb_extension
 
 - title: Table Investigation
   contents:
