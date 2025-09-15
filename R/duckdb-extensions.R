@@ -9,26 +9,33 @@
 #' [info](https://duckdb.org/docs/stable/extensions/advanced_installation_methods)
 #' about DuckDB extension installation.
 #'
+#' The
+#' [`httpfs`](https://duckdb.org/docs/stable/core_extensions/httpfs/overview.html)
+#' extension needs to be installed first since it is used to install the other
+#' extensions.
+#'
 #' @param duckdb_connection The DuckDB connection. Defaults the the in-memory
 #'   database.
 #' @param extension_name Name of the extension to install. A list of extensions
 #'   can be found in the [DuckDB
 #'   documentation](https://duckdb.org/docs/stable/core_extensions/overview.html).
 #' @param duckdb_version (Only needed for installing `httpfs`.) The version of
-#'   DuckDB installed, don't include the 'v'. It can be found with
-#'   `packageVersion("duckdb")`.
+#'   DuckDB installed, don't include the 'v'.
 #' @param platform_name (Only needed for installing `httpfs`.) See the
 #'   [platforms](https://duckdb.org/docs/stable/dev/building/overview.html#platforms)
 #'   for reference. This is checked against the list of platforms from the
 #'   reference.
 #'
-#' @importFrom utils download.file
+#' @importFrom utils download.file packageVersion
 #' @export
 install_duckdb_extension <- function(
     duckdb_connection = duck_con(),
     extension_name,
-    duckdb_version,
-    platform_name
+    duckdb_version = as.character(packageVersion("duckdb")),
+    platform_name = DBI::dbGetQuery(
+        duckdb_connection,
+        "PRAGMA platform"
+    )$platform
 ) {
     platform_name <- rlang::arg_match(
         platform_name,

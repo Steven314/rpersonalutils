@@ -7,8 +7,8 @@
 install_duckdb_extension(
   duckdb_connection = duck_con(),
   extension_name,
-  duckdb_version,
-  platform_name
+  duckdb_version = as.character(packageVersion("duckdb")),
+  platform_name = DBI::dbGetQuery(duckdb_connection, "PRAGMA platform")$platform
 )
 }
 \arguments{
@@ -19,8 +19,7 @@ database.}
 can be found in the \href{https://duckdb.org/docs/stable/core_extensions/overview.html}{DuckDB documentation}.}
 
 \item{duckdb_version}{(Only needed for installing \code{httpfs}.) The version of
-DuckDB installed, don't include the 'v'. It can be found with
-\code{packageVersion("duckdb")}.}
+DuckDB installed, don't include the 'v'.}
 
 \item{platform_name}{(Only needed for installing \code{httpfs}.) See the
 \href{https://duckdb.org/docs/stable/dev/building/overview.html#platforms}{platforms}
@@ -37,4 +36,9 @@ to make it use HTTPS. This function does that automatically for you.
 More
 \href{https://duckdb.org/docs/stable/extensions/advanced_installation_methods}{info}
 about DuckDB extension installation.
+
+The
+\href{https://duckdb.org/docs/stable/core_extensions/httpfs/overview.html}{\code{httpfs}}
+extension needs to be installed first since it is used to install the other
+extensions.
 }
