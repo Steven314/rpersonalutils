@@ -13,7 +13,7 @@ to make it use HTTPS. This function does that automatically for you."><meta prop
 
     <a class="navbar-brand me-2" href="../index.html">rpersonalutils</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,8 +49,8 @@ to make it use HTTPS. This function does that automatically for you.</p>
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">install_duckdb_extension</span><span class="op">(</span></span>
 <span>  duckdb_connection <span class="op">=</span> <span class="fu"><a href="duck_con.html">duck_con</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>  <span class="va">extension_name</span>,</span>
-<span>  <span class="va">duckdb_version</span>,</span>
-<span>  <span class="va">platform_name</span></span>
+<span>  duckdb_version <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html" class="external-link">as.character</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/packageDescription.html" class="external-link">packageVersion</a></span><span class="op">(</span><span class="st">"duckdb"</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>  platform_name <span class="op">=</span> <span class="fu">DBI</span><span class="fu">::</span><span class="fu">dbGetQuery</span><span class="op">(</span><span class="va">duckdb_connection</span>, <span class="st">"PRAGMA platform"</span><span class="op">)</span><span class="op">$</span><span class="va">platform</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -70,8 +70,7 @@ can be found in the <a href="https://duckdb.org/docs/stable/core_extensions/over
 
 <dt id="arg-duckdb-version">duckdb_version<a class="anchor" aria-label="anchor" href="#arg-duckdb-version"></a></dt>
 <dd><p>(Only needed for installing <code>httpfs</code>.) The version of
-DuckDB installed, don't include the 'v'. It can be found with
-<code>packageVersion("duckdb")</code>.</p></dd>
+DuckDB installed, don't include the 'v'.</p></dd>
 
 
 <dt id="arg-platform-name">platform_name<a class="anchor" aria-label="anchor" href="#arg-platform-name"></a></dt>
@@ -86,6 +85,10 @@ reference.</p></dd>
     <p>More
 <a href="https://duckdb.org/docs/stable/extensions/advanced_installation_methods" class="external-link">info</a>
 about DuckDB extension installation.</p>
+<p>The
+<a href="https://duckdb.org/docs/stable/core_extensions/httpfs/overview.html" class="external-link"><code>httpfs</code></a>
+extension needs to be installed first since it is used to install the other
+extensions.</p>
     </div>
 
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
@@ -93,7 +96,7 @@ about DuckDB extension installation.</p>
 
 
     <footer><div class="pkgdown-footer-left">
-  <p>Developed by <a href="https://slcarter.com" class="external-link">Steven Carter</a>.</p>
+  <p>Developed by <a href="https://slcarter.com" class="external-link">S. L. Carter</a>.</p>
 </div>
 
 <div class="pkgdown-footer-right">
