@@ -3,6 +3,7 @@
 export("%notin%")
 export(collect_query)
 export(count_duplicates)
+export(create_table_manually)
 export(duck_con)
 export(geographic_distance)
 export(install_duckdb_extension)

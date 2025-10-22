@@ -94,20 +94,13 @@ temp_duck_table <- function(
         # if the input is a tbl(...) statement, load it directly.
         # otherwise, assume it is a data.frame-like object and insert it.
 
-        if (dplyr::is.tbl(exec_data)) {
-            DBI::dbExecute(
-                con,
-                paste(
-                    "CREATE",
-                    ifelse(overwrite, 'OR REPLACE', ''),
-                    "TEMPORARY TABLE",
-                    tbl_name,
-                    "AS (",
-                    exec_data |>
-                        dbplyr::remote_query() |>
-                        as.character(),
-                    ")"
-                )
+        if ("tbl_duckdb_connection" %in% class(exec_data)) {
+            create_table_manually(
+                con = con,
+                name = tbl_name,
+                value = exec_data,
+                overwrite = overwrite,
+                temporary = TRUE
             )
         } else {
             DBI::dbWriteTable(

@@ -32,5 +32,4 @@ Imports:
     janitor,
     readr,
     rlang,
-    stringr,
     tidyselect
