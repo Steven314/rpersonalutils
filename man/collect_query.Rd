@@ -18,5 +18,5 @@ A tibble containing the results of the query.
 From a SQL file, query the database and return the results in a tibble.
 }
 \details{
-The SQL must not contain any comments and must not end with a semicolon.
+The SQL must not end with a semicolon. Whitespace and comments are allowed.
 }

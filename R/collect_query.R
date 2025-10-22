@@ -2,14 +2,13 @@
 #'
 #' From a SQL file, query the database and return the results in a tibble.
 #'
-#' The SQL must not contain any comments and must not end with a semicolon.
+#' The SQL must not end with a semicolon. Whitespace and comments are allowed.
 #'
 #' @param conn A database connection.
 #' @param path File path to a SQL file.
 #'
 #' @returns A tibble containing the results of the query.
 #' @importFrom readr read_file
-#' @importFrom stringr str_squish
 #' @importFrom dplyr sql collect
 #' @importFrom janitor clean_names
 #' @export
@@ -18,7 +17,6 @@ collect_query <- function(conn, path) {
         conn,
         path |>
             readr::read_file() |>
-            stringr::str_squish() |>
             dplyr::sql()
     ) |>
         dplyr::collect() |>
