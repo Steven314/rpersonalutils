@@ -14,7 +14,6 @@ Description: The objective of this package is to serve as an easier way to write
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.2
 URL: https://slcarter.com/rpersonalutils/, https://github.com/Steven314/rpersonalutils
 BugReports: https://github.com/Steven314/rpersonalutils/issues
 Depends:
@@ -33,3 +32,4 @@ Imports:
     readr,
     rlang,
     tidyselect
+Config/roxygen2/version: 8.1.0

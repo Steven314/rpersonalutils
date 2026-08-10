@@ -4,12 +4,14 @@
 \alias{duck_con}
 \title{DuckDB Connection}
 \usage{
-duck_con(dbdir, read_only = FALSE)
+duck_con(dbdir, home = "home_directory", read_only = FALSE)
 }
 \arguments{
 \item{dbdir}{Location for database files. Should be a path to an existing
 directory in the file system. With the default (or ""), all data is kept in
 RAM.}
+
+\item{home}{Defaults to \code{home_directory}. See \code{\link[duckdb:duckdb_storage]{duckdb::duckdb_storage}}.}
 
 \item{read_only}{Set to TRUE for read-only operation. For file-based
 databases, this is only applied when the database file is opened for the
@@ -17,7 +19,7 @@ first time. Subsequent connections (via the same drv object or a drv object
 pointing to the same path) will silently ignore this flag.}
 }
 \value{
-A DuckDB connection object (\code{\link[duckdb:duckdb_driver-class]{duckdb::duckdb_driver}}).
+A DuckDB connection object (\code{\link[duckdb:duckdb_driver]{duckdb::duckdb_driver}}).
 }
 \description{
 Connect to a DuckDB file.

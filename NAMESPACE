@@ -12,18 +12,24 @@ export(oracle_con)
 export(select_columns_na)
 export(temp_duck_table)
 export(write_duckdb)
-importFrom(dplyr,collect)
-importFrom(dplyr,count)
-importFrom(dplyr,filter)
-importFrom(dplyr,pull)
-importFrom(dplyr,select)
-importFrom(dplyr,sql)
-importFrom(dplyr,tbl)
+importFrom(dplyr,
+  collect,
+  count,
+  filter,
+  pull,
+  select,
+  sql,
+  tbl
+)
 importFrom(janitor,clean_names)
 importFrom(readr,read_file)
-importFrom(rlang,arg_match)
-importFrom(rlang,is_installed)
-importFrom(rlang,is_logical)
+importFrom(rlang,
+  arg_match,
+  is_installed,
+  is_logical
+)
 importFrom(tidyselect,where)
-importFrom(utils,download.file)
-importFrom(utils,packageVersion)
+importFrom(utils,
+  download.file,
+  packageVersion
+)
