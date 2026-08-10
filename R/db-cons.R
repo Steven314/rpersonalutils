@@ -35,7 +35,7 @@ oracle_con <- function(user, pass, dbname) {
 #' @param dbdir Location for database files. Should be a path to an existing
 #'   directory in the file system. With the default (or ""), all data is kept in
 #'   RAM.
-#' @param home Defaults to `home_directory`. See [`duckdb::duckdb_storage`].
+#' @param home Defaults to `~/.duckdb`. See [`duckdb::duckdb_storage`].
 #' @param read_only Set to TRUE for read-only operation. For file-based
 #'   databases, this is only applied when the database file is opened for the
 #'   first time. Subsequent connections (via the same drv object or a drv object
@@ -44,7 +44,7 @@ oracle_con <- function(user, pass, dbname) {
 #' @returns A DuckDB connection object ([`duckdb::duckdb_driver`]).
 #' @importFrom rlang is_logical
 #' @export
-duck_con <- function(dbdir, home = "home_directory", read_only = FALSE) {
+duck_con <- function(dbdir, home = "~/.duckdb", read_only = FALSE) {
     requireNamespace("duckdb", quietly = TRUE)
 
     stopifnot(rlang::is_logical(read_only))

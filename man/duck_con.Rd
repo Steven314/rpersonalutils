@@ -4,14 +4,14 @@
 \alias{duck_con}
 \title{DuckDB Connection}
 \usage{
-duck_con(dbdir, home = "home_directory", read_only = FALSE)
+duck_con(dbdir, home = "~/.duckdb", read_only = FALSE)
 }
 \arguments{
 \item{dbdir}{Location for database files. Should be a path to an existing
 directory in the file system. With the default (or ""), all data is kept in
 RAM.}
 
-\item{home}{Defaults to \code{home_directory}. See \code{\link[duckdb:duckdb_storage]{duckdb::duckdb_storage}}.}
+\item{home}{Defaults to \verb{~/.duckdb}. See \code{\link[duckdb:duckdb_storage]{duckdb::duckdb_storage}}.}
 
 \item{read_only}{Set to TRUE for read-only operation. For file-based
 databases, this is only applied when the database file is opened for the
