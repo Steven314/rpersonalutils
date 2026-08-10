@@ -62,6 +62,10 @@ write_duckdb <- function(
         message(paste("Table", table_name, "already exists."))
     }
 
+    if (exists & !overwrite) {
+        return(invisible(table))
+    }
+
     exec_data <- force(table)
 
     if ("tbl_duckdb_connection" %in% class(exec_data)) {
@@ -71,6 +75,13 @@ write_duckdb <- function(
             value = exec_data,
             overwrite = overwrite,
             temporary = FALSE
+        )
+    } else if ("tbl_dbi" %in% class(exec_data)) {
+        DBI::dbWriteTable(
+            conn = con,
+            name = table_name,
+            value = collect(exec_data),
+            overwrite = overwrite,
         )
     } else {
         DBI::dbWriteTable(
