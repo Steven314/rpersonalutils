@@ -1,0 +1,65 @@
+# rpersonalutils
+
+The objective of this package is to serve as an easier way to write
+functions or snippets that I commonly use.
+
+## Installation
+
+You can install the development version of `rpersonalutils` from
+[GitHub](https://github.com/) with:
+
+``` r
+
+# install.packages("pak")
+pak::pak("Steven314/rpersonalutils")
+
+# -- OR --
+
+# intall.packages("remotes")
+remotes::install_github("Steven314/rpersonalutils")
+```
+
+There are no plans to release on CRAN as this is primarily for personal
+use.
+
+# Package index
+
+## Database Interactions
+
+### General
+
+- [`collect_query()`](https://slcarter.com/rpersonalutils/reference/collect_query.md)
+  : Collect Query from SQL File
+
+### Oracle
+
+- [`oracle_con()`](https://slcarter.com/rpersonalutils/reference/oracle_con.md)
+  : Oracle Database Connection
+
+### DuckDB
+
+- [`duck_con()`](https://slcarter.com/rpersonalutils/reference/duck_con.md)
+  : DuckDB Connection
+- [`write_duckdb()`](https://slcarter.com/rpersonalutils/reference/write_duckdb.md)
+  : Write a Table to a DuckDB Instance
+- [`temp_duck_table()`](https://slcarter.com/rpersonalutils/reference/temp_duck_table.md)
+  : Create a Temporary DuckDB Table
+- [`attach_duckdb()`](https://slcarter.com/rpersonalutils/reference/attach_duckdb.md)
+  : Attach an Additional DuckDB File to Connection
+- [`install_duckdb_extension()`](https://slcarter.com/rpersonalutils/reference/install_duckdb_extension.md)
+  : Install DuckDB Extensions Through HTTPS
+
+## Table Investigation
+
+- [`count_duplicates()`](https://slcarter.com/rpersonalutils/reference/count_duplicates.md)
+  : Count Duplicate Rows
+- [`` `%notin%` ``](https://slcarter.com/rpersonalutils/reference/grapes-notin-grapes.md)
+  : Not In
+- [`select_columns_na()`](https://slcarter.com/rpersonalutils/reference/select_columns_na.md)
+  : Select Columns That Have Missing Values
+
+## Calculation Shortcuts
+
+- [`geographic_distance()`](https://slcarter.com/rpersonalutils/reference/geographic_distance.md)
+  : Geographic Distance Between Two Pairs of Coordinates
+
