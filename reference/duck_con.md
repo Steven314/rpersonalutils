@@ -5,7 +5,7 @@ Connect to a DuckDB file.
 ## Usage
 
 ``` r
-duck_con(dbdir, home = "home_directory", read_only = FALSE)
+duck_con(dbdir, home = "~/.duckdb", read_only = FALSE)
 ```
 
 ## Arguments
@@ -17,7 +17,7 @@ duck_con(dbdir, home = "home_directory", read_only = FALSE)
 
 - home:
 
-  Defaults to `home_directory`. See `duckdb::duckdb_storage`.
+  Defaults to `~/.duckdb`. See `duckdb::duckdb_storage`.
 
 - read_only:
 
