@@ -24,6 +24,7 @@ reference:
   - duck_con
   - write_duckdb
   - temp_duck_table
+  - attach_duckdb
   - install_duckdb_extension
 
 - title: Table Investigation
