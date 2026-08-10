@@ -17,7 +17,8 @@ duck_con(dbdir, home = "~/.duckdb", read_only = FALSE)
 
 - home:
 
-  Defaults to `~/.duckdb`. See `duckdb::duckdb_storage`.
+  Defaults to `~/.duckdb`. See
+  [`duckdb::duckdb_storage`](https://r.duckdb.org/reference/duckdb_storage.html).
 
 - read_only:
 
@@ -28,4 +29,5 @@ duck_con(dbdir, home = "~/.duckdb", read_only = FALSE)
 
 ## Value
 
-A DuckDB connection object (`duckdb::duckdb_driver`).
+A DuckDB connection object
+([`duckdb::duckdb_driver`](https://r.duckdb.org/reference/duckdb_driver-class.html)).

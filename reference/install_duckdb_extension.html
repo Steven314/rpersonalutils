@@ -50,7 +50,7 @@ to make it use HTTPS. This function does that automatically for you.</p>
 <span>  duckdb_connection <span class="op">=</span> <span class="fu"><a href="duck_con.html">duck_con</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>  <span class="va">extension_name</span>,</span>
 <span>  duckdb_version <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html" class="external-link">as.character</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/packageDescription.html" class="external-link">packageVersion</a></span><span class="op">(</span><span class="st">"duckdb"</span><span class="op">)</span><span class="op">)</span>,</span>
-<span>  platform_name <span class="op">=</span> <span class="fu">DBI</span><span class="fu">::</span><span class="fu">dbGetQuery</span><span class="op">(</span><span class="va">duckdb_connection</span>, <span class="st">"PRAGMA platform"</span><span class="op">)</span><span class="op">$</span><span class="va">platform</span></span>
+<span>  platform_name <span class="op">=</span> <span class="fu">DBI</span><span class="fu">::</span><span class="fu"><a href="https://dbi.r-dbi.org/reference/dbGetQuery.html" class="external-link">dbGetQuery</a></span><span class="op">(</span><span class="va">duckdb_connection</span>, <span class="st">"PRAGMA platform"</span><span class="op">)</span><span class="op">$</span><span class="va">platform</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
